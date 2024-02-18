@@ -176,6 +176,8 @@ if metin.startswith('Py'):  # Metin 'Py' ile başlıyorsa
 duz_metin = "  Python  "
 duz_metin = duz_metin.strip()  # Stringin başındaki ve sonundaki boşlukları kaldırır
 
+jıjıjı
+
 # 16. Karakterlerin İndeksini Bulma
 index_of_t = metin.index('t')  # 't' karakterinin indeksini bulur
 
