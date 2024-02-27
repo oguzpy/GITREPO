@@ -1,3 +1,4 @@
+
 import configparser
 import pytest
 from selenium import webdriver
@@ -23,6 +24,9 @@ class GoogleSearchPage:
 
     def open_google(self):
         self.driver.get("https://www.google.com")
+        textarea_element = WebDriverWait(self.driver, timeout=5).until(
+            EC.visibility_of_element_located((By.ID, 'APjFqb'))
+        )
 
     def enter_search_text(self):
         search_text = config.get(section= 'GoogleSearchSettings', option='search_text')
@@ -34,9 +38,7 @@ class GoogleSearchPage:
         textarea.send_keys(Keys.ENTER)
 
     def assert_search_result(self):
-        textarea_element = WebDriverWait(self.driver, timeout=5).until(
-            EC.visibility_of_element_located((By.ID, 'APjFqb'))
-        )
+        textarea_element = WebDriverWait(self.driver, timeout=10).until(EC.visibility_of_element_located((By.ID, 'APjFqb')))
         text_value = textarea_element.text
         expected_text = config.get(section='GoogleSearchSettings', option='expected_text')
 
@@ -59,7 +61,8 @@ class GoogleSearchPage:
 @pytest.fixture(scope="module")
 def driver():
     if browser == "chrome":
-        driver = webdriver.Chrome(executable_path='./driver/chromedriver.exe')
+        driver = webdriver.Chrome(executable_path=r'C:\Users\oguzc\PycharmProjects\GITREPO\driver\chromedriver.exe')
+
     else:
         raise ValueError(f"Invalid browser type: {browser}")
     driver.set_window_size(window_width, window_height)
