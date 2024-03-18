@@ -19,3 +19,6 @@ class BaseTest(unittest.TestCase):
         elif driver == 'firefox':
             self.driver = webdriver.Firefox()
         return self.driver
+    def driver_down(self):
+        if self.driver:
+            self.driver.quit()
