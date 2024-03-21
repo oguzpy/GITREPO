@@ -22,3 +22,4 @@ class BaseTest(unittest.TestCase):
     def driver_down(self):
         if self.driver:
             self.driver.quit()
+
