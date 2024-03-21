@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from base.base_functions import BaseFunctions
-from pages.careers_page import CareersPage
+from POM_Task_Insider.base.base_functions import BaseFunctions
+from POM_Task_Insider.pages.careers_page import CareersPage
 
 
 class HomePage(BaseFunctions):

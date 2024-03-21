@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from base.base_functions import BaseFunctions
-from pages.qa_page import QaPages
+from POM_Task_Insider.base.base_functions import BaseFunctions
+from POM_Task_Insider.pages.qa_page import QaPages
 
 
 class CareersPage(BaseFunctions):

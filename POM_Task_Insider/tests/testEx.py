@@ -1,7 +1,7 @@
-import base.base_test
-from base.base_test import BaseTest
-from pages.home_page import HomePage
-import base
+import POM_Task_Insider.base.base_test
+from POM_Task_Insider.base.base_test import BaseTest
+from POM_Task_Insider.pages.home_page import HomePage
+import POM_Task_Insider.base
 import pytest
 
 import time
