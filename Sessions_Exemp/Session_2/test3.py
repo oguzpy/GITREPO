@@ -30,9 +30,9 @@ class GoogleSearchPage:
         )
         textarea.send_keys(search_text)
         textarea.send_keys(Keys.RETURN)
-        WebDriverWait(self.driver, timeout=10).until(
-            EC.visibility_of_element_located((By.CLASS_NAME, 'fKmH1e'))
-        )
+        # WebDriverWait(self.driver, timeout=10).until(
+        #     EC.visibility_of_element_located((By.CLASS_NAME, 'fKmH1e'))
+        # )
 
     def assert_search_result(self):
         textarea_element = WebDriverWait(self.driver, timeout=10).until(
@@ -83,7 +83,7 @@ def test_google_search(driver):
         google_search_page.finalize()
 
     except AssertionError:
-        test_status = "failed"
+        test_status = "failed2"
         google_search_page.take_screenshot(test_status)
         raise
     finally:

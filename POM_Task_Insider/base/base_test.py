@@ -1,26 +1,34 @@
-import configparser
-import os
 import unittest
 from selenium import webdriver
-import logging
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-settings_file = os.path.join(current_dir, '..', 'base', 'settings.ini')
-config = configparser.ConfigParser()
-config.read(settings_file)
-browser = config.get('WebDriverSettings', 'browser')
-site_url = config.get('SiteSettings', 'site_main_url')
+from base.base_functions import BaseFunctions
 
 
-class BaseTest(unittest.TestCase):
+class BaseTest(unittest.TestCase, BaseFunctions):
+    """
+    Base test class for setting up test environment and driver.
+
+    """
+
     def __init__(self, *args, **kwargs):
+        """
+        Initializes the test class.
+
+        :param args: Positional arguments.
+        :param kwargs: Keyword arguments.
+        """
         super().__init__(*args, **kwargs)
-        self.driver = self.get_driver(browser)
+        site_url = self.get_set('SiteSettings', 'site_main_url')
+        self.driver = self.get_driver()
         self.driver.get(site_url)
         self.driver.maximize_window()
-        self.logger = self.init_logger()
 
-    def get_driver(self, driver=browser):
+    def get_driver(self):
+        """
+        Retrieves the WebDriver based on the configuration.
+
+        :return: WebDriver instance.
+        """
+        driver = self.get_set('WebDriverSettings', 'browser')
         if driver == 'chrome':
             self.driver = webdriver.Chrome()
         elif driver == 'safari':
@@ -30,14 +38,19 @@ class BaseTest(unittest.TestCase):
         return self.driver
 
     def driver_down(self):
+        """
+        Quits the WebDriver if it exists.
+
+        """
         if self.driver:
             self.driver.quit()
 
-    @property
-    def test_name(self):
-        return self._testMethodName
+    def take_screenshot2(self):
+        """
+        Takes a screenshot and saves it based on the test status.
 
-    def init_logger(self):
-        logger = logging.getLogger(self.test_name)
-        logger.setLevel(logging.INFO)
-        return logger
+        :param test_status: The status of the test.
+        """
+        filepath = self.get_set('WebDriverSettings', 'screen_shot_path')
+        filename = f"{filepath}test_result_failed.png"
+        self.driver.save_screenshot("teststs.png")

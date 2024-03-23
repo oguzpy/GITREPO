@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GITREPO.iml" filepath="$PROJECT_DIR$/.idea/GITREPO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../insiderbootcampproject-oguzpy/.idea/insiderbootcampproject-oguzpy.iml" filepath="$PROJECT_DIR$/../insiderbootcampproject-oguzpy/.idea/insiderbootcampproject-oguzpy.iml" />
     </modules>
   </component>
 </project>
