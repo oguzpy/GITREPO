@@ -1,4 +1,5 @@
-# sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+import os, sys
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from base.base_test import BaseTest
 from pages.home_page import HomePage
 from base.driver_manager import quit_driver
