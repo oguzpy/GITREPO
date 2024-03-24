@@ -14,7 +14,7 @@ class BaseFunctions(object):
 
     """
 
-    def __init__(self, driver, explicit_wait=5):
+    def __init__(self, driver, explicit_wait=20):
         """
         Inits driver according to explicit wait
 
@@ -93,7 +93,8 @@ class BaseFunctions(object):
         option = self.wait_for_element(locator_option_text)
         option.click()
 
-    def get_set(self, settings, key):
+    @staticmethod
+    def get_set(settings, key):
         """
         Retrieves a value from the settings file based on the specified settings and key.
 
@@ -107,7 +108,7 @@ class BaseFunctions(object):
         config.read(settings_file)
         return config.get(settings, key)
 
-    def scroll_and_hover_element(self, element, wait_time=2):
+    def scroll_and_hover_element(self, element, wait_time=1):
         """
         Scrolls to the specified element and hovers over it.
 

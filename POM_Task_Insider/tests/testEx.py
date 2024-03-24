@@ -5,6 +5,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from base.base_test import BaseTest
 from pages.home_page import HomePage
+from base.driver_manager import quit_driver,create_driver
 from base import aws_database_controller
 
 
@@ -23,7 +24,8 @@ class TestPomViolation(BaseTest):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def test_(self):
+
+    def test_case(self):
         home_page = HomePage(self.driver)
         careers_page = home_page.go_to_careers_page()
         qa_page = careers_page.go_to_qa_page()
@@ -31,5 +33,5 @@ class TestPomViolation(BaseTest):
         positions_page.select_location()
         positions_page.select_department()
         positions_page.verify_boxes_values()
-        self.driver_down()
+        quit_driver()
         print("Test başarılı !")

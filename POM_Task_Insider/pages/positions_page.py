@@ -36,8 +36,11 @@ class PositionsPages(BaseFunctions):
         Checks for the presence of required elements on the page.
 
         """
+
         self.wait.until(EC.element_to_be_clickable(self.location_dropdown_loc), "Location Drop Down not clickable")
         self.wait.until(EC.element_to_be_clickable(self.department_dropdown_loc), "Department Drop Down not clickable")
+        control_result_element = self.wait_for_element(self.result_check)
+        self.scroll_and_hover_element(control_result_element)
         self.wait.until(EC.visibility_of_element_located(self.result_check), "Timeout results not found")
 
     def select_location(self):
