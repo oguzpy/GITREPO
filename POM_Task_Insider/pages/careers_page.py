@@ -39,6 +39,7 @@ class CareersPage(BaseFunctions):
         Navigates to the Quality Assurance positions page.
 
         :return: QaPages object representing the QA positions page.
+
         """
         self.wait_scroll_and_click_element(self.teams_sections)
         self.wait_scroll_and_click_element(self.qa_job_title)

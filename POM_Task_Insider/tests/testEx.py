@@ -1,12 +1,7 @@
-import os
-import sys
-
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
-
+# sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 from base.base_test import BaseTest
 from pages.home_page import HomePage
-from base.driver_manager import quit_driver,create_driver
-from base import aws_database_controller
+from base.driver_manager import quit_driver
 
 
 class TestPomViolation(BaseTest):
@@ -23,7 +18,6 @@ class TestPomViolation(BaseTest):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
 
     def test_case(self):
         home_page = HomePage(self.driver)

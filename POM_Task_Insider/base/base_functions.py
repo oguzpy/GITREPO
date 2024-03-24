@@ -1,6 +1,5 @@
 from selenium.common import NoSuchElementException, ElementClickInterceptedException, ElementNotInteractableException
 from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import time
@@ -43,7 +42,7 @@ class BaseFunctions(object):
         :param WebElement element: Element to be checked
         """
         try:
-            self.wait.until(ec.element_to_be_clickable(element))
+            self.wait.until(ec.element_to_be_clickable(element), "Element is not clickable")
             return True
         except (NoSuchElementException, ElementClickInterceptedException, ElementNotInteractableException):
             return False
@@ -54,7 +53,7 @@ class BaseFunctions(object):
 
         :param WebElement element: Element to find and click
         """
-        self.wait.until(ec.element_to_be_clickable(element)).click()
+        self.wait.until(ec.element_to_be_clickable(element), "Element is not clickable").click()
 
     def wait_for_element(self, element):
         """
@@ -63,7 +62,7 @@ class BaseFunctions(object):
         :param WebElement element: The element to wait for.
         :return: The element whose presence was awaited.
         """
-        return self.wait.until(ec.presence_of_element_located(element))
+        return self.wait.until(ec.presence_of_element_located(element), "Element is not presence")
 
     def wait_scroll_and_click_element(self, locator, wait_time=1):
         """

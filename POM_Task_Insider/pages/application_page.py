@@ -13,7 +13,6 @@ class ApplicationPage(BaseFunctions):
     apply_button = (By.CLASS_NAME, 'template-btn-submit')
     page_section = (By.CLASS_NAME, 'template-btn-submit')
 
-
     def __init__(self, driver):
         """
         Initializes the ApplicationPage object.
@@ -22,7 +21,6 @@ class ApplicationPage(BaseFunctions):
         """
         super().__init__(driver)
         self.check()
-
 
     def check(self):
         """

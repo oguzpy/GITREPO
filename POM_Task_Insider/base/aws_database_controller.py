@@ -1,5 +1,6 @@
 import boto3
 
+
 class S3Uploader:
     @staticmethod
     def connect_to_s3():

@@ -24,12 +24,12 @@ class HomePage(BaseFunctions):
         self.check()
         self.base_functions = BaseFunctions(self.driver)
 
-    def  check(self):
+    def check(self):
         """
         Checks for the presence of required sections on the page.
 
         """
-        self.wait.until(EC.visibility_of_element_located(self.navbar_dropdown))
+        self.wait.until(EC.visibility_of_element_located(self.navbar_dropdown), "Element is not visibility")
 
     def go_to_careers_page(self):
         """

@@ -59,7 +59,6 @@ class PositionsPages(BaseFunctions):
     def select_department(self):
         """
         Selects the department from the dropdown menu.
-
         """
         department = self.get_set('Preferences', 'department')
         if self.wait_for_element(self.department_dropdown_loc).get_attribute("title") == department:

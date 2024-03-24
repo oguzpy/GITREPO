@@ -1,12 +1,15 @@
 from selenium import webdriver
-from base.base_functions import BaseFunctions as BF
+from base.base_functions import BaseFunctions
+
 _driver = None
+
 
 def create_driver():
     global _driver
     if _driver is None:
         _driver = get_driver()
     return _driver
+
 
 def quit_driver():
     global _driver
@@ -21,7 +24,7 @@ def get_driver():
 
     :return: WebDriver instance.
     """
-    driver = BF.get_set('WebDriverSettings', 'browser')
+    driver = BaseFunctions.get_set('WebDriverSettings', 'browser')
     if driver == 'chrome':
         driver = webdriver.Chrome()
     elif driver == 'firefox':

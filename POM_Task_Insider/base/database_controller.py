@@ -1,7 +1,6 @@
 import configparser
 import os
 import pymysql
-import io
 from base.base_functions import BaseFunctions
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
